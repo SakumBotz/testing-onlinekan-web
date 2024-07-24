@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+.video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+@media (min-aspect-ratio: 16/9){
+    .video {
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio: 16/9){
+    .video {
+        width: auto;
+        height: 100%;
+    }
+}
+.container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: colorful 30s linear infinite;
+}
+@keyframes colorful {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+.angka-jam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.bar-detik span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 6deg));
+    inset: -20px;
+    text-align: center;
+}
+.bar-detik span p {
+    display: inline-block;
+    width: 2px;
+    height: 12px;
+    background: #0ef;
+    border-radius: 2px;
+    box-shadow: 0 0 10px #0ef;
+}
+.bar-detik span:nth-child(5n) p {
+    width: 6px;
+    height: 18px;
+    transform: translateY(1px);
+}
+.angka-jam span {
+    position: absolute;
+    transform: rotate(calc(var(--index) * 30deg));
+    inset: 6px;
+    text-align: center;
+}
+.angka-jam span p {
+    font-size: 52px;
+    color: aqua;
+    text-shadow: 0 0 10px;
+    transform: rotate(calc(var(--index) * -30deg));
+}
+.kotak {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.kotak .bagian {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+.kotak .jam {
+    width: 320px;
+    height: 320px;
+}
+.kotak .jam i{
+    width: 8px;
+    height: 160px;
+    background: #0ef;
+}
+.kotak .bagian i {
+    display: inline-block;
+    transform-origin: bottom;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #0ef;
+}
+.kotak .menit {
+    width: 450px;
+    height: 450px;
+}
+.kotak .menit::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    background: #0ef;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #0ef;
+}
+.kotak .menit i {
+    width: 8px;
+    height: 230px;
+    background: #0ef;
+}
+.kotak .detik {
+    width: 480px;
+    height: 480px;
+    transform: rotate(160deg);
+}
+.kotak .detik::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba( 0, 0, 0, .5);
+}
+.kotak .detik i {
+    width: 4px;
+    height: calc(240px + 70px);
+    background: white;
+    box-shadow: none;
+
+}
